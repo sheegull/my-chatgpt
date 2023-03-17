@@ -24,7 +24,7 @@ router.post("/message", async (ctx) => {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: message,
-    max_tokens: 10,
+    max_tokens: 64,
     temperature: 0.7,
     top_p: 1,
     frequency_penalty: 0.5,

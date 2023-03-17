@@ -25,7 +25,7 @@ const Chat = () => {
   ]);
 
   return (
-    <div className="w-[calc(100%-100px)] p-12 md:px-20 rounded-3xl bg-[#2F343C]">
+    <div className="w-[calc(100%-30px)] md:w-[calc(100%-100px)] p-8 md:px-20 rounded-3xl bg-[#2F343C]">
       <Head />
       <div className="w-full h-[1px] my-8 bg-[#4F5361]" />
       <Messages messages={messages} />

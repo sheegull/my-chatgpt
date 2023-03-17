@@ -30,7 +30,7 @@ router.post("/message", async (ctx) => {
     frequency_penalty: 0.5,
     presence_penalty: 0,
   });
-  console.log(response.data.choices[0].text);
+  // console.log(response.data.choices[0].text);
 
   ctx.body = {
     message: response.data.choices[0].text,

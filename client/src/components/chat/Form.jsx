@@ -7,7 +7,7 @@ const Form = ({ setMessages }) => {
 
   const messageResponse = async () => {
     const { data } = await axios.post("http://localhost:5001/message", { message });
-    console.log(data);
+    // console.log(data);
 
     setMessages((prev) => [
       ...prev,
@@ -38,7 +38,7 @@ const Form = ({ setMessages }) => {
   };
 
   return (
-    <form className="flex items-center">
+    <form className="flex items-center mt-12">
       <input
         type="text"
         value={message}

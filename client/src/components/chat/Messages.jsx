@@ -8,9 +8,9 @@ const Message = ({ msg, type, time }) => {
       animate={{ opacity: 1, y: 0 }}
       className={`flex items-center ${type === "bot" ? "justify-start" : "justify-end"}`}
     >
-      <div className={`flex flex-col ${type === "user" && "items-end"}`}>
+      <div className={`flex flex-col ${type === "user" && "items-end"} max-w-[60%]`}>
         <div
-          className={`flex flex-col text-white rounded-xl px-4 py-3 ${
+          className={`flex flex-col text-white rounded-xl px-4 py-3 md:py-4 ${
             type === "bot" ? "bg-[#3A3F47] rounded-bl-none" : "bg-[#176FFF] rounded-br-none"
           } `}
         >
@@ -30,7 +30,7 @@ const Messages = ({ messages }) => {
   }, [messages]);
 
   return (
-    <div className="space-y-4 max-h-96 overflow-y-scroll scrollbar-hide">
+    <div className="space-y-4 max-h-[500px] overflow-y-scroll scrollbar-hide">
       {messages.length ? (
         messages.map((message, idx) => <Message key={idx} {...message} />)
       ) : (

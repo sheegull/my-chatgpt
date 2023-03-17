@@ -29,7 +29,6 @@ const Chat = () => {
       <Head />
       <div className="w-full h-[1px] my-8 bg-[#4F5361]" />
       <Messages messages={messages} />
-      <div className="w-full h-[1px] my-8 bg-[#4F5361]" />
       <Form setMessages={setMessages} />
     </div>
   );

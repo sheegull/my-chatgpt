@@ -1,10 +1,25 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
+import axios from "axios";
 
 const Form = ({ setMessages }) => {
   const [text, setText] = useState("");
 
-  const sendMessage = (e) => {
+  const messageResponse = async () => {
+    const { data } = await axios.post("http://localhost:5001/message", { text });
+    console.log(data.message);
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        msg: data.message,
+        type: "bot",
+        time: format(new Date(), "HH:mm"),
+      },
+    ]);
+  };
+
+  const sendMessage = async (e) => {
     e.preventDefault();
 
     if (!text) return;
@@ -17,6 +32,9 @@ const Form = ({ setMessages }) => {
         time: format(new Date(), "HH:mm"),
       },
     ]);
+    setText("");
+
+    await messageResponse();
   };
 
   return (

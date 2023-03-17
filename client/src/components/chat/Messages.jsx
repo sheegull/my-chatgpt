@@ -10,13 +10,13 @@ const Message = ({ msg, type, time }) => {
     >
       <div className={`flex flex-col ${type === "user" && "items-end"}`}>
         <div
-          className={`flex flex-col text-white rounded-xl p-4 ${
+          className={`flex flex-col text-white rounded-xl px-4 py-3 ${
             type === "bot" ? "bg-[#3A3F47] rounded-bl-none" : "bg-[#176FFF] rounded-br-none"
           } `}
         >
           <p>{msg}</p>
         </div>
-        <span className={`text-xs mt-3 text-[#949494]`}>{time}</span>
+        <span className={`text-xs mt-2 text-[#949494]`}>{time}</span>
       </div>
     </motion.div>
   );

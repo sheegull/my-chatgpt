@@ -1,9 +1,10 @@
-require("dotenv").config();
-const Koa = require("koa");
-const Router = require("@koa/router");
-const cors = require("@koa/cors");
-const bodyParser = require("koa-bodyparser");
-const { Configuration, OpenAIApi } = require("openai");
+import Koa from "koa";
+import Router from "@koa/router";
+import cors from "@koa/cors";
+import bodyParser from "koa-bodyparser";
+import { Configuration, OpenAIApi } from "openai";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const app = new Koa();
 const router = new Router();
@@ -23,8 +24,11 @@ router.post("/message", async (ctx) => {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: message,
-    max_tokens: 100,
-    temperature: 0.9,
+    max_tokens: 10,
+    temperature: 0.7,
+    top_p: 1,
+    frequency_penalty: 0.5,
+    presence_penalty: 0,
   });
   console.log(message);
 

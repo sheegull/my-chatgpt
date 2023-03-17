@@ -30,7 +30,7 @@ const Messages = ({ messages }) => {
   }, [messages]);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 max-h-96 overflow-y-scroll scrollbar-hide">
       {messages.length ? (
         messages.map((message, idx) => <Message key={idx} {...message} />)
       ) : (

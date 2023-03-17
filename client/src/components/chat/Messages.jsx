@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Message = ({ msg, type, time }) => {
@@ -23,6 +23,12 @@ const Message = ({ msg, type, time }) => {
 };
 
 const Messages = ({ messages }) => {
+  const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="space-y-4">
       {messages.length ? (
@@ -32,6 +38,7 @@ const Messages = ({ messages }) => {
           <p className="text-white text-sm">Ask the bot anything...</p>
         </div>
       )}
+      <div ref={messageEndRef} />
     </div>
   );
 };

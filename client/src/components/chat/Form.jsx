@@ -3,11 +3,11 @@ import { format } from "date-fns";
 import axios from "axios";
 
 const Form = ({ setMessages }) => {
-  const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
 
   const messageResponse = async () => {
-    const { data } = await axios.post("http://localhost:5001/message", { text });
-    console.log(data.message);
+    const { data } = await axios.post("http://localhost:5001/message", { message });
+    console.log(data);
 
     setMessages((prev) => [
       ...prev,
@@ -22,17 +22,17 @@ const Form = ({ setMessages }) => {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    if (!text) return;
+    if (!message) return;
 
     setMessages((prev) => [
       ...prev,
       {
-        msg: text,
+        msg: message,
         type: "user",
         time: format(new Date(), "HH:mm"),
       },
     ]);
-    setText("");
+    setMessage("");
 
     await messageResponse();
   };
@@ -41,8 +41,8 @@ const Form = ({ setMessages }) => {
     <form className="flex items-center">
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
         placeholder="Type a message"
         className="bg-[#3A3F47] text-white placeholder:text-[#949494] text-sm rounded-2xl p-4 w-full outline-none"
       />

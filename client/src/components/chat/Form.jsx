@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { MdKeyboardVoice } from "react-icons/md";
 import { AiOutlinePaperClip } from "react-icons/ai";
 
@@ -16,7 +17,7 @@ const Form = ({ setMessages }) => {
       {
         msg: data.message,
         type: "bot",
-        time: format(new Date(), "HH:mm"),
+        time: format(new Date(), "eee MMM dd HH:mm"),
       },
     ]);
   };
@@ -31,7 +32,7 @@ const Form = ({ setMessages }) => {
       {
         msg: message,
         type: "user",
-        time: format(new Date(), "HH:mm"),
+        time: format(new Date(), "eee MMM d HH:mm"),
       },
     ]);
     setMessage("");
@@ -49,11 +50,15 @@ const Form = ({ setMessages }) => {
         className="relative bg-[#3A3F47] text-white placeholder:text-[#949494] text-sm rounded-full pl-8 p-4 w-full outline-none"
       />
       <button type="submit" onClick={sendMessage}>
-        <AiOutlinePaperClip className="text-[#949494] text-[22px] absolute right-[80px] top-[16px]" />
+        <AiOutlinePaperClip className="text-[#949494] text-[22px] absolute right-[80px] top-[16px] hover:opacity-50 transition-opacity" />
       </button>
-      <div className=" bg-[#176FFF] rounded-full p-3 ml-4 cursor-pointer">
+      <motion.div
+        whileHover={{ scale: [null, 1.2, 1.2] }}
+        transition={{ duration: 0.3 }}
+        className=" bg-[#176FFF] rounded-full p-3 ml-4 cursor-pointer"
+      >
         <MdKeyboardVoice className="text-white text-2xl" />
-      </div>
+      </motion.div>
     </form>
   );
 };

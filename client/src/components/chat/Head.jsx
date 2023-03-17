@@ -1,6 +1,7 @@
 import React from "react";
 import bot from "../../assets/bot.svg";
-import { BsCameraVideo, BsTelephone } from "react-icons/bs";
+import { BsTelephoneFill } from "react-icons/bs";
+import { IoVideocam } from "react-icons/io5";
 
 const Head = () => {
   return (
@@ -17,8 +18,8 @@ const Head = () => {
         </div>
       </div>
       <div className="flex text-white gap-6 flex-row items-center">
-        <BsCameraVideo className="text-[22px]" />
-        <BsTelephone className="text-[22px]" />
+        <IoVideocam className="text-[26px] cursor-pointer hover:opacity-50 transition-opacity" />
+        <BsTelephoneFill className="text-[20px] cursor-pointer hover:opacity-50 transition-opacity" />
       </div>
     </div>
   );

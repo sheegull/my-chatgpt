@@ -11,7 +11,7 @@ const Head = () => {
           alt="bot-image"
           className="w-14 h-14 bg-[#176FFF] rounded-2xl justify-center flex items-center p-[2px]"
         />
-        <div className="text-white ml-4 flex flex-col">
+        <div className="text-white ml-6 flex flex-col">
           <p className="font-bold">ChatBot</p>
           <p className="text-xs mt-1">Online</p>
         </div>

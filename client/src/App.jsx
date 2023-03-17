@@ -1,7 +1,9 @@
+import Chat from "./components/Chat";
+
 function App() {
   return (
-    <div className="App">
-      <div>Chat</div>
+    <div className="w-full h-screen flex items-center justify-center">
+      <Chat />
     </div>
   );
 }

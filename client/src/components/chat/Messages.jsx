@@ -25,9 +25,13 @@ const Message = ({ msg, type, time }) => {
 const Messages = ({ messages }) => {
   return (
     <div className="space-y-4">
-      {messages.map((message, idx) => (
-        <Message key={idx} {...message} />
-      ))}
+      {messages.length ? (
+        messages.map((message, idx) => <Message key={idx} {...message} />)
+      ) : (
+        <div className="flex items-center justify-center h-full">
+          <p className="text-white text-sm">Ask the bot anything...</p>
+        </div>
+      )}
     </div>
   );
 };

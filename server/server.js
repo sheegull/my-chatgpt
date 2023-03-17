@@ -23,17 +23,16 @@ app.get("/", async (req, res) => {
 
 app.post("/message", async (req, res) => {
   try {
-    const prompt = req.body.prompt;
-
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${prompt}`,
+      prompt: req.body.message,
       temperature: 0.7,
       max_tokens: 1000,
       top_p: 1,
       frequency_penalty: 0.5,
       presence_penalty: 0,
     });
+    console.log("PASSED: ", req.body.message);
 
     res.status(200).send({
       message: response.data.choices[0].text,

@@ -9,7 +9,7 @@ const Form = ({ setMessages }) => {
   const [message, setMessage] = useState("");
 
   const messageResponse = async () => {
-    const { data } = await axios.post("http://localhost:5001/message", { message });
+    const { data } = await axios.post("https://my-chatgpt-n7af.onrender.com/message", { message });
     // console.log(data);
 
     setMessages((prev) => [

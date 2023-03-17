@@ -7,21 +7,21 @@ import Form from "./chat/Form";
 
 const Chat = () => {
   const [messages, setMessages] = useState([
-    {
-      msg: "Hello, how are you?",
-      type: "bot",
-      time: format(new Date(), "HH:mm"),
-    },
-    {
-      msg: "I am fine, thank you!",
-      type: "user",
-      time: format(new Date(), "HH:mm"),
-    },
-    {
-      msg: "How can I help you?",
-      type: "bot",
-      time: format(new Date(), "HH:mm"),
-    },
+    // {
+    //   msg: "Hello, how are you?",
+    //   type: "bot",
+    //   time: format(new Date(), "HH:mm"),
+    // },
+    // {
+    //   msg: "I am fine, thank you!",
+    //   type: "user",
+    //   time: format(new Date(), "HH:mm"),
+    // },
+    // {
+    //   msg: "How can I help you?",
+    //   type: "bot",
+    //   time: format(new Date(), "HH:mm"),
+    // },
   ]);
 
   return (

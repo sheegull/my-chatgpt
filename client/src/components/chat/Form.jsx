@@ -9,7 +9,8 @@ const Form = ({ setMessages }) => {
   const [message, setMessage] = useState("");
 
   const messageResponse = async () => {
-    const { data } = await axios.post("https://my-chatgpt-n7af.onrender.com/message", { message });
+    const { data } = await axios.post("http://localhost:5001/message", { message });
+    //https://my-chatgpt-n7af.onrender.com/message
     // console.log(data);
 
     setMessages((prev) => [
@@ -47,7 +48,7 @@ const Form = ({ setMessages }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type a message"
-        className="relative bg-[#3A3F47] text-white placeholder:text-[#949494] text-sm rounded-full pl-6 md:pl-8 p-3 md:p-4 w-full outline-none"
+        className="relative bg-[#3A3F47] text-white placeholder:text-[#949494] text-sm rounded-full pl-6 md:pl-8 pr-11 md:pr-14 p-3 md:p-4 w-full outline-none"
       />
       <button type="submit" onClick={sendMessage}>
         <AiOutlinePaperClip className="text-[#949494] text-[20px] md:text-[22px] absolute right-[68px] top-[13px] md:right-[80px] md:top-[16px] hover:opacity-50 transition-opacity" />
